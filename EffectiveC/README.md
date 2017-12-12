@@ -33,3 +33,11 @@ Widget & operate=(const Widget & rhs)
 }
 ```
 * `copy`构造函数时，确保每一部分都赋值，尤其注意浅复制的问题。
+### 资源管理
+* `std::auto_ptr<type>`是个好东西，可惜我不会用，还不懂。
+* 成对使用`new && delete`采用相同格式
+```C++
+int *ptr=new int[20];
+...
+delete [] ptr;
+```
