@@ -30,6 +30,7 @@ ios_base::in | 打开文件，以便读取
 ios_base::out | 打开文件，以便写入
 ios_base::app | 追加到文件尾
 ios_base::binary | 二进制文件
+ios_base::trunc | 如果文件存在，则删除内容
 
 ------------------------------------
 在文件追加东西
@@ -40,4 +41,19 @@ ofstream fout;
 	string name = "Alex";
 	fout << name<<endl;
 	fout.close();
+```
+----------------------------------------
+### 两种在文件中移动的方式
+`seekg()`和`seekp()`   
+* 前者将输入指针移动到指定位置，后者将输出指针移动到指定位置。
+* 两者都是模板
+```C++
+1 istream & seekg(streamoff,ios_base::seekdir);
+2 istream & seekg(streampos);
+//第一种，将定位到距离第二个参数的特定距离。
+//第二种，将定位到距离开头的特定距离。
+//ios_base::seekdir有三种可能的值
+//ios_base::beg,指文件开始处
+//ios_base::end,指文件结尾处
+//ios—base::cur,指当前位置
 ```
