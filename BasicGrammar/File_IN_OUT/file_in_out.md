@@ -23,3 +23,21 @@ char Buff[200] = { 0 };
 	cout << Buff;
   fin.close();
 ```
+------------------------
+常量 | 含义
+----- | ----------------------
+ios_base::in | 打开文件，以便读取
+ios_base::out | 打开文件，以便写入
+ios_base::app | 追加到文件尾
+ios_base::binary | 二进制文件
+
+------------------------------------
+在文件追加东西
+```C++
+ofstream fout;
+	fout.open("test.txt",ios_base::out|ios_base::app);
+	fout << "这是一个测试";
+	string name = "Alex";
+	fout << name<<endl;
+	fout.close();
+```
