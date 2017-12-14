@@ -36,8 +36,15 @@ Widget & operate=(const Widget & rhs)
 ### 资源管理
 * `std::auto_ptr<type>`是个好东西，可惜我不会用，还不懂。
 * 成对使用`new && delete`采用相同格式
-```C++
+```C++   
 int *ptr=new int[20];
 ...
 delete [] ptr;
-```
+```h
+* 以独立语句将`new`对象放入智能指针内。防止内存泄漏
+* 尽量以`pass-by-reference-to-const`daiti`pass-by-values`,也就是传递引用，并声明为`const`。
+
+-------------------------------------------------
+### 设计与实现
+* 将成员变量设置为`private`,保持数据一致性。
+* 尽量以非成员函数代替成员函数。
