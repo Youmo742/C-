@@ -1,8 +1,8 @@
-//Ä£ÄâÆÀÎ¯´ò·ÖÏµÍ³£¬ÅÅĞòÊä³öÑ¡ÊÖ
+//æ¨¡æ‹Ÿè¯„å§”æ‰“åˆ†ç³»ç»Ÿï¼Œæ’åºè¾“å‡ºé€‰æ‰‹
 /*
-ÒªÇó´ÓµÃ·ÖÖĞÈ¥³ıÒ»¸ö×î¸ß·Ö£¬È¥³ıÒ»¸ö×îµÍ·Ö£¬ÇóÆ½¾ù·Ö¡£
-ÓÃSTL£¬Ñ§Ï°STL
-½¨Á¢Ò»¸öÑ¡ÊÖÀà
+è¦æ±‚ä»å¾—åˆ†ä¸­å»é™¤ä¸€ä¸ªæœ€é«˜åˆ†ï¼Œå»é™¤ä¸€ä¸ªæœ€ä½åˆ†ï¼Œæ±‚å¹³å‡åˆ†ã€‚
+ç”¨STLï¼Œå­¦ä¹ STL
+å»ºç«‹ä¸€ä¸ªé€‰æ‰‹ç±»
 */
 
 #include <iostream>
@@ -23,10 +23,10 @@ public:
 	int pl_score;
 };
 
-//´´½¨Ñ¡ÊÖ
+//åˆ›å»ºé€‰æ‰‹
 void CreatPalyer(vector<Palyer>& v_Palyer)
 {
-	string name[]{ "Ğ¡Ã÷","Àî»ª","ÍõÑÅ","Ğ¡ºÚ","´ó×ì" };
+	string name[]{ "å°æ˜","æå","ç‹é›…","å°é»‘","å¤§å˜´" };
 	for (int i = 0;i < 5;i++)
 	{
 		Palyer p;
@@ -35,12 +35,12 @@ void CreatPalyer(vector<Palyer>& v_Palyer)
 		v_Palyer.push_back(p);
 	}
 }
-//¸øÑ¡ÊÖ´ò·Ö
+//ç»™é€‰æ‰‹æ‰“åˆ†
 void SetScore(vector<Palyer>&v_Palyer)
 {
 	for (vector<Palyer>::iterator it_Palyer = v_Palyer.begin();it_Palyer != v_Palyer.end();it_Palyer++)
 	{
-		//½«Ñ¡ÊÖµÄµÃ·Ö±£´æÔÚÒ»¸ö¶ÓÁĞÖĞ
+		//å°†é€‰æ‰‹çš„å¾—åˆ†ä¿å­˜åœ¨ä¸€ä¸ªé˜Ÿåˆ—ä¸­
 		deque<int>que;
 		for (int i = 0;i < 10;i++)
 		{
@@ -48,8 +48,8 @@ void SetScore(vector<Palyer>&v_Palyer)
 			que.push_back(score);
 		}
 		sort(que.begin(), que.end());
-		que.pop_back();//É¾³ı×î´óÖµ
-		que.pop_front();//É¾³ı×îµÍ·Ö
+		que.pop_back();//åˆ é™¤æœ€å¤§å€¼
+		que.pop_front();//åˆ é™¤æœ€ä½åˆ†
 
 		int totol_score=0;
 		for (deque<int>::iterator it = que.begin();it != que.end();it++)
@@ -59,8 +59,8 @@ void SetScore(vector<Palyer>&v_Palyer)
 		(*it_Palyer).pl_score = (totol_score / que.size());
 	}
 }
-//´òÓ¡Ñ¡ÊÖ¼°Æä·ÖÊı£¬²¢ÅÅĞò
-//ÅÅĞò·½Ê½
+//æ‰“å°é€‰æ‰‹åŠå…¶åˆ†æ•°ï¼Œå¹¶æ’åº
+//æ’åºæ–¹å¼
 bool Mycom(Palyer& p1, Palyer &p2)
 {
 	return p1.pl_score < p2.pl_score;
@@ -68,7 +68,7 @@ bool Mycom(Palyer& p1, Palyer &p2)
 void PrintPalyer(vector<Palyer>&v_Palyer)
 {
 	sort(v_Palyer.begin(), v_Palyer.end(), Mycom);
-	//´òÓ¡
+	//æ‰“å°
 	for (vector<Palyer>::iterator it = v_Palyer.begin();it != v_Palyer.end();it++)
 	{
 		cout << (*it).pl_name << " " << (*it).pl_score << endl;
